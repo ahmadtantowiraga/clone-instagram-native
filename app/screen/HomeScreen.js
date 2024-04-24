@@ -213,7 +213,7 @@ const HomeScreen = (props) => {
                         View all 1 comments
                     </Text>
                     <Text style={{fontSize : 13, marginTop: 5}}>
-                        1 minute ago
+                        1 minutes ago
                     </Text>
                   </View>
   
