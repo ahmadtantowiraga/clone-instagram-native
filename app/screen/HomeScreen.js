@@ -19,17 +19,17 @@ const DATA = [
     },
     {
       id: "2",
-      name: "achmad_musfiul",
+      name: "a_fiul",
       image:"https://cdnwpseller.gramedia.com/wp-content/uploads/2022/05/07090859/877766976.jpg"
     },
     {
       id: "3",
-      name: "rifqyram",
-      image:"https://img.inews.co.id/media/600/files/inews_new/2022/02/14/jefri_nichol.jpg"
+      name: "_amandaAisya",
+      image:"https://i.pinimg.com/236x/ed/9c/88/ed9c88cde2dc50187f9a606d45230e7f.jpg"
     },
     {
       id: "4",
-      name: "jojohansa",
+      name: "emil",
       image:"https://img.inews.co.id/media/300https://img.inews.co.id/media/822/files/inews_new/2021/12/14/rizky_nazar_fakta.jpg"
     },
     {
@@ -40,12 +40,12 @@ const DATA = [
     {
         id: "6",
         name: "leeryakbar",
-        image:""
+        image:"https://cdn1-production-images-kly.akamaized.net/G-ZbJwZ-xdOv2lROgd_rPPk1yqo=/500x667/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/3279631/original/056317800_1603790268-aliando3.jpg"
       },
       {
         id: "7",
-        name: "_amandaAisya",
-        image:"https://i.pinimg.com/236x/ed/9c/88/ed9c88cde2dc50187f9a606d45230e7f.jpg"
+        name: "ilham",
+        image:"https://img.inews.co.id/media/600/files/inews_new/2022/02/14/jefri_nichol.jpg"
       },
   ];
 
@@ -83,13 +83,19 @@ const HomeScreen = (props) => {
 
       <View style={styles.container}>
         <FlatList
+            showsHorizontalScrollIndicator={false}
             horizontal
             data={akuns}
             keyExtractor={(item) => item.id}
-            renderItem={(item) =>{
+            renderItem={({item}) =>{
                 return (
                     <View>
-                        
+                        <Image
+                            style={styles.productImage}
+                            source={{uri: item.image}}
+                            />
+                        {item.id==1 ? <View><View style={{position:'absolute', right:0, bottom:0}}><AntDesign name="pluscircle" size={24} color="blue" /></View></View>  : ""}
+                        <Text style={{alignSelf:'center', fontSize:12}}>{item.name}</Text>
                     </View>
                 )
             }}
@@ -116,5 +122,13 @@ const styles = StyleSheet.create({
         justifyContent:'space-between',
         alignItems: "center",
         width: 75
-  }
+  },
+  productImage: {
+    width: 60,
+    height: 60,
+    borderRadius: 30,
+    margin: 5,
+    borderWidth:2,
+    borderColor:'#e95950',
+  },
 });
