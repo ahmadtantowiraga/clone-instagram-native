@@ -91,7 +91,7 @@ const HomeScreen = (props) => {
         >
           <View style={{ flexDirection: "row" }}>
             <Image
-              source={require("../screen/images/instagram1.png")}
+              source={{uri: "https://www.pngitem.com/pimgs/m/132-1327993_instagram-logo-word-png-transparent-png.png"}}
               style={{ width: 100, height: 30 }}
             />
           </View>
