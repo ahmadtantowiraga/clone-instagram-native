@@ -7,14 +7,15 @@ import {
   StyleSheet,
   Image,
   FlatList,
+  Dimensions,
 } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import { FontAwesome5, AntDesign } from "@expo/vector-icons";
+import { FontAwesome5, AntDesign, Entypo } from "@expo/vector-icons";
 
 const DATA = [
     {
       id: "1",
-      name: "Your Story",
+      name: "tanto_wiahmad",
       image:"https://cdn.idntimes.com/content-images/post/20170616/17933965-728145744053960-719716440113938432-n-e72cb492e2a5309549a698b1478a6674_600x400.jpg"
     },
     {
@@ -48,7 +49,7 @@ const DATA = [
         image:"https://img.inews.co.id/media/600/files/inews_new/2022/02/14/jefri_nichol.jpg"
       },
   ];
-
+const {width, height} = Dimensions.get('window');
 const HomeScreen = (props) => {
   const insets = useSafeAreaInsets();
   const [refreshing, setRefreshing] = useState(false);
@@ -95,16 +96,45 @@ const HomeScreen = (props) => {
                             source={{uri: item.image}}
                             />
                         {item.id==1 ? <View><View style={{position:'absolute', right:0, bottom:0}}><AntDesign name="pluscircle" size={24} color="blue" /></View></View>  : ""}
-                        <Text style={{alignSelf:'center', fontSize:12}}>{item.name}</Text>
+                        <Text style={{alignSelf:'center', fontSize:12}}>{item.id==1 ? "Your Story" : item.name}</Text>
                     </View>
                 )
             }}
         />
       </View>
 
-      <View style={styles.container}>
-        <Text>Postingan</Text>
+      <View style={styles.container2}>
+      <FlatList
+            data={akuns}
+            keyExtractor={(item) => item.id}
+            renderItem={({item}) =>{
+                return (
+                    <View>
+                        <View style={{flexDirection:'row', alignItems:'center', justifyContent:"space-between"}}>
+                            <View style={{flexDirection:'row', alignItems:'center'}}>
+                                <Image
+                                style={styles.productImage2}
+                                source={{uri: item.image}}
+                                />
+                                <Text  style={{marginHorizontal:5}}>{item.name}</Text>
+                            </View>
+                            <View style={{marginRight: 5}}>
+                            <Entypo name="dots-three-horizontal" size={24} color="black" />
+                            </View>
+                        </View>
+                        <View>
+                        <Image
+                                style={styles.productImage3}
+                                source={{uri: item.image}}
+                                />
+                        </View>
+                        <View></View>
+                    </View>
+                )
+            }}
+        />
       </View>
+
     </ScrollView>
   );
 };
@@ -115,6 +145,10 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: "white",
     padding: 10,
+    margin: 1,
+  },
+  container2: {
+    backgroundColor: "white",
     margin: 1,
   },
   header: {
@@ -130,5 +164,17 @@ const styles = StyleSheet.create({
     margin: 5,
     borderWidth:2,
     borderColor:'#e95950',
+  },
+  productImage2: {
+    width: 40,
+    height: 40,
+    borderRadius: 30,
+    margin: 5,
+    borderWidth:2,
+    borderColor:'#e95950',
+  },
+  productImage3: {
+    width: width,
+    height: width,
   },
 });
