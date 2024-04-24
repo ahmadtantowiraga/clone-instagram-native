@@ -233,7 +233,7 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: "white",
     padding: 10,
-    margin: 1,
+    
   },
   container2: {
     backgroundColor: "white",
