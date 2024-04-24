@@ -205,20 +205,18 @@ const HomeScreen = (props) => {
                   </View>
                 </View>
                 <View>
-                  <View style={{ margin: 5 , flexDirection: 'row'}}>
-                    <Text style={{ fontWeight: "bold", marginRight: 5 }}>
+                  <View style={{ margin: 5, marginBottom: 10, marginTop:0 }}>
+                    <Text><Text style={{ fontWeight: "bold", marginRight: 5 }}>
                       {item.name}
-                    </Text>
-                    <Text>Keren Abizzz inimah!!!! </Text>
-                  </View>
-                  <View style={{ margin: 5 }}>
-                    <Text style={{fontSize : 13}}>
+                    </Text> Keren Abizzz inimah!!!! Aku Jomblo ini nomer aku : 087763346365!!! </Text>
+                    <Text style={{fontSize : 13, marginTop: 5}}>
                         View all 1 comments
                     </Text>
-                    <Text style={{fontSize : 13}}>
+                    <Text style={{fontSize : 13, marginTop: 5}}>
                         1 minute ago
                     </Text>
                   </View>
+  
                 </View>
               </View>
             );
